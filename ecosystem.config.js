@@ -3,14 +3,14 @@ module.exports = {
     {
       name: 'moye-studio-webapp',
       script: 'node_modules/.bin/next',
-      args: 'start',
+      args: 'dev',
       cwd: '/home/user/webapp',
       instances: 1,
       exec_mode: 'fork',
       watch: false,
       max_memory_restart: '500M',
       env: {
-        NODE_ENV: 'production',
+        NODE_ENV: 'development',
         PORT: 3000,
       },
       log_file: './logs/combined.log',
