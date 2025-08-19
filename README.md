@@ -25,7 +25,8 @@
 - **Frontend**: Next.js 14, React 18, TypeScript
 - **Styling**: Tailwind CSS
 - **Build Tool**: Next.js with static export
-- **Process Manager**: PM2
+- **Deployment**: GitHub Pages, GitHub Actions
+- **Process Manager**: PM2 (development)
 - **Linting**: ESLint
 
 ## 📦 설치 및 실행
@@ -45,10 +46,10 @@ npm run dev
 
 ### 프로덕션 빌드 및 배포
 ```bash
-# 프로덕션 빌드
+# 프로덕션 빌드 (GitHub Pages용)
 npm run build
 
-# PM2로 프로덕션 서버 실행
+# 로컬 PM2 서버 실행 (개발용)
 npx pm2 start ecosystem.config.js
 
 # 서버 상태 확인
@@ -74,11 +75,15 @@ src/
 ├── types/              # TypeScript 타입 정의
 │   └── index.ts        # 공통 타입
 └── lib/                # 유틸리티 함수
+.github/
+└── workflows/
+    └── deploy.yml      # GitHub Actions 배포 워크플로우
 ```
 
 ## 🌍 배포된 서비스
 
-서비스 URL: https://3000-iqxan33umawndpdl0aeei-6532622b.e2b.dev
+- **GitHub Pages**: https://pro19670.github.io/moye-studio-webapp
+- **Development**: https://3000-iqxan33umawndpdl0aeei-6532622b.e2b.dev
 
 ## 🎯 주요 특징
 
@@ -87,6 +92,7 @@ src/
 - **성능 최적화**: 이미지 최적화, 코드 스플리팅, 캐싱 전략
 - **접근성**: WCAG 2.1 가이드라인 준수
 - **다국어 지원**: 한국어 우선, 영어 지원 가능
+- **자동 배포**: GitHub Actions를 통한 CI/CD 파이프라인
 
 ## 🔧 개발 가이드
 
