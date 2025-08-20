@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -11,7 +10,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <a href="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">M</span>
             </div>
@@ -19,32 +18,32 @@ export default function Header() {
               <h1 className="text-xl font-bold text-gray-900">MoYe Studio</h1>
               <p className="text-xs text-gray-500">모두의예체능</p>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link href="/instructors" className="text-gray-700 hover:text-primary-600 transition-colors">
+            <button onClick={() => alert('강사 찾기 페이지는 준비 중입니다. 곧 서비스될 예정입니다!')} className="text-gray-700 hover:text-primary-600 transition-colors">
               강사 찾기
-            </Link>
-            <Link href="/courses" className="text-gray-700 hover:text-primary-600 transition-colors">
+            </button>
+            <button onClick={() => alert('수업 안내 페이지는 준비 중입니다. 곧 서비스될 예정입니다!')} className="text-gray-700 hover:text-primary-600 transition-colors">
               수업 안내
-            </Link>
-            <Link href="/about" className="text-gray-700 hover:text-primary-600 transition-colors">
+            </button>
+            <button onClick={() => alert('소개 페이지는 준비 중입니다. 곧 서비스될 예정입니다!')} className="text-gray-700 hover:text-primary-600 transition-colors">
               소개
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-primary-600 transition-colors">
+            </button>
+            <button onClick={() => alert('상담 문의는 현재 준비 중입니다. 이메일로 문의해주세요: contact@moyestudio.com')} className="text-gray-700 hover:text-primary-600 transition-colors">
               상담 문의
-            </Link>
+            </button>
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Link href="/login" className="btn-secondary">
+            <button onClick={() => alert('로그인 기능은 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-secondary">
               로그인
-            </Link>
-            <Link href="/signup" className="btn-primary">
+            </button>
+            <button onClick={() => alert('회원가입 기능은 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-primary">
               회원가입
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -62,26 +61,26 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-4">
-              <Link href="/instructors" className="text-gray-700 hover:text-primary-600">
+              <button onClick={() => alert('강사 찾기 페이지는 준비 중입니다. 곧 서비스될 예정입니다!')} className="text-gray-700 hover:text-primary-600 text-left">
                 강사 찾기
-              </Link>
-              <Link href="/courses" className="text-gray-700 hover:text-primary-600">
+              </button>
+              <button onClick={() => alert('수업 안내 페이지는 준비 중입니다. 곧 서비스될 예정입니다!')} className="text-gray-700 hover:text-primary-600 text-left">
                 수업 안내
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-primary-600">
+              </button>
+              <button onClick={() => alert('소개 페이지는 준비 중입니다. 곧 서비스될 예정입니다!')} className="text-gray-700 hover:text-primary-600 text-left">
                 소개
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-primary-600">
+              </button>
+              <button onClick={() => alert('상담 문의는 현재 준비 중입니다. 이메일로 문의해주세요: contact@moyestudio.com')} className="text-gray-700 hover:text-primary-600 text-left">
                 상담 문의
-              </Link>
+              </button>
               <hr className="my-4" />
               <div className="flex flex-col space-y-2">
-                <Link href="/login" className="btn-secondary text-center">
+                <button onClick={() => alert('로그인 기능은 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-secondary text-center">
                   로그인
-                </Link>
-                <Link href="/signup" className="btn-primary text-center">
+                </button>
+                <button onClick={() => alert('회원가입 기능은 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-primary text-center">
                   회원가입
-                </Link>
+                </button>
               </div>
             </div>
           </div>

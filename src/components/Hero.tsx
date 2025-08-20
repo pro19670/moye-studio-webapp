@@ -1,4 +1,6 @@
-import Link from 'next/link'
+
+
+'use client'
 
 export default function Hero() {
   return (
@@ -17,15 +19,15 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Link href="/instructors" className="btn-primary text-lg px-8 py-3">
+            <button onClick={() => alert('강사 찾기 기능은 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-primary text-lg px-8 py-3">
               강사 찾기
-            </Link>
-            <Link href="/courses" className="btn-secondary text-lg px-8 py-3">
+            </button>
+            <button onClick={() => alert('수업 안내 페이지는 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-secondary text-lg px-8 py-3">
               수업 안내
-            </Link>
-            <Link href="/contact" className="text-primary-600 hover:text-primary-700 font-medium">
+            </button>
+            <button onClick={() => alert('무료 상담은 현재 준비 중입니다. 이메일로 문의해주세요: contact@moyestudio.com')} className="text-primary-600 hover:text-primary-700 font-medium">
               무료 상담 받기 →
-            </Link>
+            </button>
           </div>
 
           {/* Features */}

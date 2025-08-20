@@ -125,7 +125,7 @@ export default function FeaturedInstructors() {
                 <span className="text-lg font-semibold text-gray-900">
                   {instructor.hourlyRate.toLocaleString()}원/시간
                 </span>
-                <button className="btn-primary text-sm py-2 px-4">
+                <button onClick={() => alert(`${instructor.name} 강사의 상세 정보는 준비 중입니다. 곧 서비스될 예정입니다!`)} className="btn-primary text-sm py-2 px-4">
                   상세 보기
                 </button>
               </div>
@@ -134,7 +134,7 @@ export default function FeaturedInstructors() {
         </div>
 
         <div className="text-center mt-12">
-          <button className="btn-secondary text-lg px-8 py-3">
+          <button onClick={() => alert('모든 강사 보기 기능은 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-secondary text-lg px-8 py-3">
             모든 강사 보기
           </button>
         </div>

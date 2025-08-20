@@ -1,3 +1,5 @@
+'use client'
+
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import FeaturedInstructors from '@/components/FeaturedInstructors'
@@ -58,7 +60,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <button className="btn-primary w-full">자세히 보기</button>
+              <button onClick={() => alert('방학 집중 과정 상세 정보는 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-primary w-full">자세히 보기</button>
             </div>
 
             {/* Comprehensive Course */}
@@ -96,7 +98,7 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <button className="btn-primary w-full">자세히 보기</button>
+              <button onClick={() => alert('종합 유학 준비 과정 상세 정보는 준비 중입니다. 곧 서비스될 예정입니다!')} className="btn-primary w-full">자세히 보기</button>
             </div>
           </div>
         </div>
@@ -112,10 +114,10 @@ export default function HomePage() {
             무료 상담을 통해 개인 맞춤형 학습 계획을 세워보세요
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-primary-600 font-medium py-3 px-8 rounded-lg hover:bg-gray-50 transition-colors">
+            <button onClick={() => alert('무료 상담 예약은 현재 준비 중입니다. 이메일로 문의해주세요: contact@moyestudio.com')} className="bg-white text-primary-600 font-medium py-3 px-8 rounded-lg hover:bg-gray-50 transition-colors">
               무료 상담 예약
             </button>
-            <button className="border border-white text-white font-medium py-3 px-8 rounded-lg hover:bg-primary-700 transition-colors">
+            <button onClick={() => alert('강사 둘러보기 기능은 준비 중입니다. 곧 서비스될 예정입니다!')} className="border border-white text-white font-medium py-3 px-8 rounded-lg hover:bg-gray-50 transition-colors">
               강사 둘러보기
             </button>
           </div>
