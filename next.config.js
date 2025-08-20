@@ -2,17 +2,12 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/moye-studio-webapp' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/moye-studio-webapp' : '',
+  // GitHub Pages는 이미 /moye-studio-webapp 경로에 있으므로 basePath 불필요
   images: {
     unoptimized: true
   },
   // GitHub Pages 최적화
-  distDir: 'out',
-  // 정적 최적화 강화
-  experimental: {
-    optimizePackageImports: ['@heroicons/react']
-  }
+  distDir: 'out'
 }
 
 module.exports = nextConfig
