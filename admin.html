@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoYe Studio 관리자</title>
+    <title>Cresce Academy 관리자</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FF6B35 0%, #6A4C93 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -47,12 +47,12 @@
 
         .login-input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #FF6B35;
         }
 
         .login-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FF6B35 0%, #6A4C93 100%);
             color: white;
             padding: 15px;
             border: none;
@@ -65,7 +65,7 @@
 
         .login-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
 
         .admin-container {
@@ -79,7 +79,7 @@
         }
 
         .admin-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FF6B35 0%, #6A4C93 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -125,8 +125,8 @@
 
         .nav-tab.active {
             background: white;
-            color: #667eea;
-            border-bottom: 3px solid #667eea;
+            color: #FF6B35;
+            border-bottom: 3px solid #FF6B35;
         }
 
         .admin-content {
@@ -147,7 +147,7 @@
             color: #333;
             margin-bottom: 30px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 2px solid #FF6B35;
         }
 
         .item-grid {
@@ -166,9 +166,9 @@
         }
 
         .item-card:hover {
-            border-color: #667eea;
+            border-color: #FF6B35;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.15);
         }
 
         .item-header {
@@ -211,7 +211,7 @@
         }
 
         .btn-add {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #FF6B35 0%, #6A4C93 100%);
             color: white;
             padding: 15px 30px;
             border: none;
@@ -291,7 +291,7 @@
 
         .form-input:focus, .form-textarea:focus, .form-select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #FF6B35;
         }
 
         .form-textarea {
@@ -425,7 +425,7 @@
         <input type="password" id="password-input" class="login-input" placeholder="관리자 비밀번호 입력" maxlength="20">
         <button class="login-btn" onclick="checkPassword()">로그인</button>
         <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
-            <span class="status-indicator"></span>MoYe Studio Admin System v2.0
+            <span class="status-indicator"></span>Cresce Academy Admin System v2.0
         </p>
     </div>
 
@@ -433,8 +433,8 @@
     <div id="admin-dashboard" class="admin-container">
         <div class="admin-header">
             <button class="logout-btn" onclick="logout()">🚪 로그아웃</button>
-            <h1>🎨 MoYe Studio 관리자</h1>
-            <p>웹사이트 콘텐츠를 쉽게 편집하고 관리하세요</p>
+            <h1>🌱 Cresce Academy 관리자</h1>
+            <p>예술과 스포츠 아카데미 콘텐츠를 쉽게 편집하고 관리하세요</p>
         </div>
 
         <div class="admin-nav">
@@ -486,19 +486,19 @@
                 <h2 class="section-title">사이트 설정</h2>
                 <div class="form-group">
                     <label class="form-label">사이트 제목</label>
-                    <input type="text" class="form-input" id="site-title" value="MoYe Studio - 모두의예체능">
+                    <input type="text" class="form-input" id="site-title" value="Cresce Arts & Sports Academy">
                 </div>
                 <div class="form-group">
                     <label class="form-label">연락처 전화번호</label>
-                    <input type="text" class="form-input" id="contact-phone" value="02-1234-5678">
+                    <input type="text" class="form-input" id="contact-phone" value="02-1478-8562">
                 </div>
                 <div class="form-group">
                     <label class="form-label">연락처 이메일</label>
-                    <input type="email" class="form-input" id="contact-email" value="info@moyestudio.com">
+                    <input type="email" class="form-input" id="contact-email" value="info@cresceacademy.com">
                 </div>
                 <div class="form-group">
                     <label class="form-label">주소</label>
-                    <input type="text" class="form-input" id="contact-address" value="서울시 강남구 테헤란로">
+                    <input type="text" class="form-input" id="contact-address" value="서울시 강남구 테헤란로 해성빌딩 3층">
                 </div>
                 <button class="btn-save" onclick="saveSettings()">설정 저장</button>
                 
@@ -544,7 +544,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">날짜/기간</label>
-                    <input type="text" class="form-input" id="banner-date" placeholder="예: 30 AUG, 2025.08~">
+                    <input type="text" class="form-input" id="banner-date" placeholder="예: 9월 개강, 연중 모집">
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn-cancel" onclick="closeBannerModal()">취소</button>
@@ -601,19 +601,19 @@
                 <div class="form-group">
                     <label class="form-label">프로그램 아이콘</label>
                     <select class="form-select" id="program-icon">
-                        <option value="⚡">⚡ 번개</option>
+                        <option value="🎨">🎨 예술</option>
+                        <option value="⚽">⚽ 스포츠</option>
+                        <option value="🌟">🌟 융합</option>
                         <option value="🎯">🎯 타겟</option>
                         <option value="🚀">🚀 로켓</option>
                         <option value="💎">💎 다이아몬드</option>
                         <option value="🏆">🏆 트로피</option>
                         <option value="📚">📚 책</option>
-                        <option value="🎨">🎨 예술</option>
-                        <option value="✨">✨반짝임</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-label">기간</label>
-                    <input type="text" class="form-input" id="program-duration" placeholder="예: 2-4주 단기집중">
+                    <input type="text" class="form-input" id="program-duration" placeholder="예: 3개월 과정, 연중 운영">
                 </div>
                 <div class="form-group">
                     <label class="form-label">프로그램 설명</label>
@@ -621,7 +621,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">주요 특징 (한 줄씩 입력)</label>
-                    <textarea class="form-textarea" id="program-features" placeholder="집중적인 실기 포트폴리오 제작&#10;전문 영어/토플 집중 훈련&#10;개인별 맞춤 스케줄 운영"></textarea>
+                    <textarea class="form-textarea" id="program-features" placeholder="개인 맞춤형 교육&#10;창의적 사고력 개발&#10;다양한 장르 체험"></textarea>
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn-cancel" onclick="closeProgramModal()">취소</button>
@@ -633,7 +633,7 @@
 
     <script>
         // 보안 설정
-        const ADMIN_PASSWORD = "moye2024admin";
+        const ADMIN_PASSWORD = "cresce2024admin";
         let isAuthenticated = false;
 
         // 로그인 처리
@@ -643,7 +643,7 @@
                 isAuthenticated = true;
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('admin-dashboard').style.display = 'block';
-                localStorage.setItem('adminAuth', 'true');
+                localStorage.setItem('cresceAdminAuth', 'true');
                 loadData();
             } else {
                 alert('❌ 잘못된 비밀번호입니다.');
@@ -654,14 +654,14 @@
         // 로그아웃
         function logout() {
             isAuthenticated = false;
-            localStorage.removeItem('adminAuth');
+            localStorage.removeItem('cresceAdminAuth');
             document.getElementById('login-screen').style.display = 'block';
             document.getElementById('admin-dashboard').style.display = 'none';
         }
 
         // 페이지 로드 시 인증 확인
         window.addEventListener('load', function() {
-            if (localStorage.getItem('adminAuth') === 'true') {
+            if (localStorage.getItem('cresceAdminAuth') === 'true') {
                 document.getElementById('login-screen').style.display = 'none';
                 document.getElementById('admin-dashboard').style.display = 'block';
                 isAuthenticated = true;
@@ -676,66 +676,96 @@
             }
         });
 
-        // 데이터 저장소
+        // 데이터 저장소 (기본 Cresce Academy 데이터)
         let banners = [
             {
                 id: 1,
-                title: "가을학기 ONLINE CLASS",
-                subtitle: "2025 세무사 5년차수험",
-                description: "국제학교 교과 과정에 최적화된 학습 프로그램",
-                color: "yellow",
-                date: "30 AUG"
+                title: "가을학기 예술 집중 프로그램",
+                subtitle: "창의력을 키우는 통합 예술 교육",
+                description: "미술, 음악, 무용을 통해 창의적 사고력과 표현력을 기르는 종합 예술 프로그램",
+                color: "purple",
+                date: "9월 개강"
             },
             {
                 id: 2,
-                title: "Young Kim's AP 수업반",
-                subtitle: "에이프렙과 2025 가을학기",
-                description: "History 수업 전문 과정",
+                title: "Sports Excellence 프로그램",
+                subtitle: "전문 스포츠 트레이닝 과정",
+                description: "축구, 농구, 테니스 등 다양한 종목의 체계적이고 전문적인 훈련",
                 color: "green",
-                date: "3월(토) ~ 8월(토)"
+                date: "연중 모집"
+            },
+            {
+                id: 3,
+                title: "방학 특별 아트&스포츠 캠프",
+                subtitle: "예술과 스포츠의 만남",
+                description: "방학 기간 동안 예술과 스포츠를 함께 경험하는 융합 교육 프로그램",
+                color: "yellow",
+                date: "12월 ~ 2월"
             }
         ];
 
         let instructors = [
             {
                 id: 1,
-                name: "김민지",
-                school: "Harvard University",
-                major: "Fine Arts",
-                experience: "8년"
+                name: "김아라",
+                school: "서울예술대학교",
+                major: "무용학과 (발레, 현대무용)",
+                experience: "15년"
             },
             {
                 id: 2,
-                name: "Sarah Johnson",
-                school: "Parsons School of Design",
-                major: "Fashion Design",
-                experience: "6년"
+                name: "박지훈",
+                school: "연세대학교",
+                major: "체육학과 (축구 전문)",
+                experience: "12년"
             },
             {
                 id: 3,
-                name: "박준호",
-                school: "MIT",
-                major: "Architecture",
+                name: "이수진",
+                school: "홍익대학교",
+                major: "미술대학 (회화, 디지털아트)",
                 experience: "10년"
+            },
+            {
+                id: 4,
+                name: "최현우",
+                school: "서울대학교",
+                major: "음악대학 (피아노, 작곡)",
+                experience: "8년"
+            },
+            {
+                id: 5,
+                name: "정민영",
+                school: "한국체육대학교",
+                major: "체육학과 (농구, 수영)",
+                experience: "7년"
             }
         ];
 
         let programs = [
             {
                 id: 1,
-                title: "방학 집중 과정",
-                icon: "⚡",
-                duration: "2-4주 단기집중",
-                description: "방학 기간을 활용한 실력 향상 프로그램으로, 짧은 시간 내에 집중적으로 실기와 어학 능력을 동시에 향상시킬 수 있습니다.",
-                features: ["집중적인 실기 포트폴리오 제작", "전문 영어/토플 집중 훈련", "개인별 맞춤 스케줄 운영", "입시 전략 컨설팅 포함"]
+                title: "Creative Arts 종합 프로그램",
+                icon: "🎨",
+                duration: "3개월/6개월 과정",
+                description: "미술, 음악, 무용, 연기 등을 통해 창의적 사고력과 예술적 감성을 기르는 종합 예술 교육 프로그램입니다. 개인의 특성과 관심 분야를 고려한 맞춤형 커리큘럼으로 진행됩니다.",
+                features: ["개인 맞춤형 예술 교육", "창의적 사고력 개발", "다양한 예술 장르 체험", "개인 포트폴리오 제작", "전시회 및 발표회 참가"]
             },
             {
                 id: 2,
-                title: "종합 유학 준비",
-                icon: "🎯",
-                duration: "3-6개월 장기과정",
-                description: "체계적인 장기 과정으로 입시 준비부터 입학까지 전 과정을 지원하며, 완벽한 유학 준비를 위한 토털 솔루션을 제공합니다.",
-                features: ["완성도 높은 포트폴리오 제작", "언어시험 고득점 달성", "지원서 작성 및 면접 준비", "해외 대학 입학 전체 과정 관리", "졸업 후 진로 상담 지원"]
+                title: "Sports Excellence 전문 과정",
+                icon: "⚽",
+                duration: "연중 운영 (레벨별 단계)",
+                description: "축구, 농구, 테니스, 수영 등 다양한 스포츠 종목의 전문적이고 체계적인 훈련을 통해 운동 능력과 정신력을 동시에 기르는 프로그램입니다.",
+                features: ["전문 코치진의 체계적 훈련", "기초 체력부터 고급 기술까지", "팀워크와 리더십 개발", "대회 참가 기회 제공", "개인 맞춤 트레이닝 플랜"]
+            },
+            {
+                id: 3,
+                title: "Arts & Sports 융합 프로그램",
+                icon: "🌟",
+                duration: "4개월 통합 과정",
+                description: "예술과 스포츠를 함께 경험하며 창의성과 신체능력을 동시에 발달시키는 혁신적인 융합 교육 프로그램입니다. 균형 잡힌 전인격적 성장을 목표로 합니다.",
+                features: ["예술과 스포츠의 통합 교육", "창의성과 신체능력 동시 개발", "협동심과 표현력 향상", "다양한 분야 경험 기회", "전인격적 성장 프로그램"]
             }
         ];
 
@@ -743,9 +773,9 @@
 
         // 데이터 로드
         function loadData() {
-            const savedBanners = localStorage.getItem('moye-banners');
-            const savedInstructors = localStorage.getItem('moye-instructors');
-            const savedPrograms = localStorage.getItem('moye-programs');
+            const savedBanners = localStorage.getItem('cresce-banners');
+            const savedInstructors = localStorage.getItem('cresce-instructors');
+            const savedPrograms = localStorage.getItem('cresce-programs');
             
             if (savedBanners) banners = JSON.parse(savedBanners);
             if (savedInstructors) instructors = JSON.parse(savedInstructors);
@@ -758,9 +788,9 @@
 
         // 데이터 저장
         function saveData() {
-            localStorage.setItem('moye-banners', JSON.stringify(banners));
-            localStorage.setItem('moye-instructors', JSON.stringify(instructors));
-            localStorage.setItem('moye-programs', JSON.stringify(programs));
+            localStorage.setItem('cresce-banners', JSON.stringify(banners));
+            localStorage.setItem('cresce-instructors', JSON.stringify(instructors));
+            localStorage.setItem('cresce-programs', JSON.stringify(programs));
         }
 
         // 탭 전환
@@ -1027,158 +1057,531 @@
                 address: document.getElementById('contact-address').value
             };
             
-            localStorage.setItem('moye-studio-settings', JSON.stringify(settings));
+            localStorage.setItem('cresce-academy-settings', JSON.stringify(settings));
             alert('✅ 설정이 저장되었습니다!');
         }
 
-        // 코드 생성 함수들
-        function exportBannerCode() {
-            let code = `    <!-- 🎯 배너 슬라이더 섹션 -->
-    <section class="banner-slider" id="programs-banner">
-        <div class="container">
-            <div class="section-header">
-                <h2>학원소식</h2>
-                <div class="slider-controls">
-                    <button class="slider-btn prev-btn" id="prevBtn">‹</button>
-                    <div class="slider-dots">`;
-
-            banners.forEach((banner, index) => {
-                code += `
-                        <span class="dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>`;
-            });
-
-            code += `
-                    </div>
-                    <button class="slider-btn next-btn" id="nextBtn">›</button>
-                    <button class="view-more-btn">더보기</button>
-                </div>
-            </div>
+        // 완전한 웹사이트 코드 생성 함수
+        function exportFullSite() {
+            const settings = JSON.parse(localStorage.getItem('cresce-academy-settings') || '{}');
             
-            <div class="banner-container">
-                <div class="banner-slides" id="bannerSlides">`;
-
-            banners.forEach((banner, index) => {
-                code += `
-                    <div class="banner-slide ${index === 0 ? 'active' : ''}">
-                        <div class="banner-card ${banner.color}">
-                            <div class="banner-date">${banner.subtitle}</div>
-                            <div class="banner-title">${banner.title}</div>
-                            ${banner.date ? `<div class="banner-number">${banner.date}</div>` : ''}
-                            <div class="banner-subtitle">${banner.description}</div>
-                        </div>
-                    </div>`;
-            });
-
-            code += `
-                </div>
-            </div>
-        </div>
-    </section>`;
-
-            showCodeModal('🎯 배너 HTML 코드', code);
+            let fullCode = `<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${settings.title || 'Cresce Arts & Sports Academy'}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        function exportInstructorCode() {
-            let code = `    <!-- 👨‍🏫 강사진 섹션 -->
-    <section class="instructors" id="instructors">
+        :root {
+            --primary-gradient: linear-gradient(135deg, #FF6B35 0%, #6A4C93 100%);
+            --secondary-gradient: linear-gradient(135deg, #2E8B57 0%, #4CAF50 100%);
+            --accent-gradient: linear-gradient(135deg, #00B4D8 0%, #FFD23F 100%);
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --success-color: #2E8B57;
+            --warning-color: #FFD23F;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Malgun Gothic', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #FF6B35;
+        }
+
+        .cta-button {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 40px;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(255, 107, 53, 0.15);
+        }
+
+        .banner-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);
+        }
+
+        .banner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .banner-card {
+            padding: 40px;
+            border-radius: 20px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .banner-card.yellow { background: linear-gradient(135deg, #FFD23F 0%, #FF6B35 100%); }
+        .banner-card.green { background: linear-gradient(135deg, #2E8B57 0%, #4CAF50 100%); }
+        .banner-card.mint { background: linear-gradient(135deg, #00B4D8 0%, #80CBC4 100%); }
+        .banner-card.blue { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .banner-card.purple { background: linear-gradient(135deg, #6A4C93 0%, #CE93D8 100%); }
+        .banner-card.red { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+
+        .banner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .banner-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .banner-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .banner-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .banner-date {
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-header h2 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+            .banner-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🌱 Cresce Academy</div>
+            <ul class="nav-menu">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#banners">소식</a></li>
+                <li><a href="#instructors">강사진</a></li>
+                <li><a href="#programs">프로그램</a></li>
+                <li><a href="#contact">문의</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">무료 상담</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1>예술과 스포츠의 꿈을<br>현실로 키워보세요</h1>
+            <p>세계적 수준의 전문 강사진과 함께하는 예술·스포츠 전문 교육 아카데미.<br>창의성과 기량을 동시에 발전시키는 통합 프로그램을 경험해보세요.</p>
+        </div>
+    </section>
+
+    <section class="banner-section" id="banners">
         <div class="container">
             <div class="section-header">
-                <h2>세계 명문대 출신 강사진</h2>
-                <p>각 분야의 전문가들이 여러분의 성공적인 유학을 위해 최선을 다해 지도합니다.</p>
+                <h2>아카데미 소식</h2>
+                <p>Cresce Academy의 최신 프로그램과 이벤트를 확인하세요</p>
             </div>
-            <div class="instructors-grid">`;
+            <div class="banner-grid">`;
 
-            instructors.forEach(instructor => {
-                code += `
-                <div class="instructor-card">
-                    <div class="instructor-image"></div>
-                    <div class="instructor-info">
-                        <div class="instructor-name">${instructor.name}</div>
-                        <div class="instructor-school">${instructor.school}</div>
-                        <div class="instructor-major">${instructor.major} 전공</div>
-                        <div class="instructor-experience">${instructor.experience} 경력</div>
-                    </div>
+            banners.forEach(banner => {
+                fullCode += `
+                <div class="banner-card ${banner.color}">
+                    <div class="banner-title">${banner.title}</div>
+                    <div class="banner-subtitle">${banner.subtitle}</div>
+                    <div class="banner-description">${banner.description}</div>
+                    <div class="banner-date">${banner.date}</div>
                 </div>`;
             });
 
-            code += `
+            fullCode += `
             </div>
         </div>
-    </section>`;
+    </section>
 
-            showCodeModal('👨‍🏫 강사진 HTML 코드', code);
-        }
-
-        function exportProgramCode() {
-            let code = `    <!-- 📚 프로그램 섹션 -->
-    <section class="programs" id="programs">
+    <section class="section" id="instructors">
         <div class="container">
             <div class="section-header">
-                <h2>맞춤형 교육 프로그램</h2>
-                <p>개인의 목표와 일정에 맞는 다양한 교육 프로그램을 선택하실 수 있습니다.</p>
+                <h2>예술과 스포츠 전문 강사진</h2>
+                <p>각 분야의 전문가들이 여러분의 성공적인 성장을 위해 최선을 다해 지도합니다</p>
             </div>
-            <div class="programs-grid">`;
+            <div class="grid">`;
+
+            instructors.forEach(instructor => {
+                fullCode += `
+                <div class="card">
+                    <h3 style="color: #FF6B35; margin-bottom: 15px; font-size: 1.4rem;">${instructor.name}</h3>
+                    <p style="font-weight: 600; color: #6A4C93; margin-bottom: 10px;">${instructor.school}</p>
+                    <p style="color: #666; margin-bottom: 15px;">${instructor.major}</p>
+                    <div style="background: rgba(255, 107, 53, 0.1); color: #FF6B35; padding: 8px 16px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; display: inline-block;">${instructor.experience} 경력</div>
+                </div>`;
+            });
+
+            fullCode += `
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="programs" style="background: linear-gradient(135deg, #f8f9ff 0%, #f0f4ff 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h2>다양한 예술·스포츠 프로그램</h2>
+                <p>개인의 목표와 일정에 맞는 다양한 교육 프로그램을 선택하실 수 있습니다</p>
+            </div>
+            <div class="grid">`;
 
             programs.forEach(program => {
-                code += `
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-icon">${program.icon}</div>
-                        <div class="program-title">${program.title}</div>
+                fullCode += `
+                <div class="card">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <div style="width: 60px; height: 60px; background: var(--accent-gradient); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-right: 20px; font-size: 1.5rem;">${program.icon}</div>
+                        <h3 style="color: #333; font-size: 1.4rem;">${program.title}</h3>
                     </div>
-                    <div class="program-duration">${program.duration}</div>
-                    <div class="program-description">
-                        ${program.description}
-                    </div>
-                    <ul class="program-features">`;
-
+                    <div style="background: rgba(255, 107, 53, 0.1); color: #FF6B35; padding: 6px 15px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; display: inline-block;">${program.duration}</div>
+                    <p style="color: #666; line-height: 1.6; margin-bottom: 20px;">${program.description}</p>
+                    <ul style="list-style: none; padding: 0;">`;
                 program.features.forEach(feature => {
-                    code += `
-                        <li>${feature}</li>`;
+                    fullCode += `
+                        <li style="padding: 8px 0; padding-left: 25px; position: relative; color: #666;">
+                            <span style="position: absolute; left: 0; color: #2E8B57; font-weight: bold;">✓</span>
+                            ${feature}
+                        </li>`;
                 });
-
-                code += `
+                fullCode += `
                     </ul>
                 </div>`;
             });
 
-            code += `
+            fullCode += `
             </div>
         </div>
-    </section>`;
+    </section>
 
-            showCodeModal('📚 프로그램 HTML 코드', code);
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">🌱 Cresce Academy</h3>
+                    <p>예술과 스포츠로 성장하는 내일의 리더들</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px;">프로그램</h4>
+                    <p>Creative Arts 프로그램</p>
+                    <p>Sports Excellence 과정</p>
+                    <p>융합 교육 프로그램</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px;">연락처</h4>
+                    <p>📞 ${settings.phone || '02-1478-8562'}</p>
+                    <p>📧 ${settings.email || 'info@cresceacademy.com'}</p>
+                    <p>📍 ${settings.address || '서울시 강남구 테헤란로 해성빌딩 3층'}</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 20px;">팔로우하기</h4>
+                    <p>📘 Facebook</p>
+                    <p>📷 Instagram</p>
+                    <p>🐦 Twitter</p>
+                    <p>🎥 YouTube</p>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="color: rgba(255,255,255,0.6);">&copy; 2024 Cresce Arts & Sports Academy. All rights reserved. | 개인정보처리방침 | 이용약관</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 스크롤 효과
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // 부드러운 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // 스크롤 애니메이션
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card, .banner-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'all 0.8s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>`;
+
+            showCodeModal('🚀 완전한 Cresce Academy 웹사이트 코드', fullCode);
         }
 
-        function exportFullSite() {
-            const settings = JSON.parse(localStorage.getItem('moye-studio-settings') || '{}');
+        // 코드 생성 함수들 (간소화된 버전)
+        function exportBannerCode() {
+            let code = `<!-- Cresce Academy 배너 섹션 -->
+<section class="banner-section" id="banners">
+    <div class="container">
+        <div class="section-header">
+            <h2>아카데미 소식</h2>
+            <p>Cresce Academy의 최신 프로그램과 이벤트를 확인하세요</p>
+        </div>
+        <div class="banner-grid">`;
+        
+            banners.forEach(banner => {
+                code += `
+            <div class="banner-card ${banner.color}">
+                <div class="banner-title">${banner.title}</div>
+                <div class="banner-subtitle">${banner.subtitle}</div>
+                <div class="banner-description">${banner.description}</div>
+                <div class="banner-date">${banner.date}</div>
+            </div>`;
+            });
             
-            let fullCode = `🚀 완전한 index.html 코드가 생성되었습니다!
+            code += `
+        </div>
+    </div>
+</section>`;
+            showCodeModal('🎯 Cresce Academy 배너 코드', code);
+        }
 
-📋 사용 방법:
-1. GitHub에서 index.html 파일 편집
-2. 기존 내용을 모두 삭제
-3. 아래 코드를 모두 복사해서 붙여넣기
-4. Commit changes 클릭
-5. 2-3분 후 웹사이트에서 확인
+        function exportInstructorCode() {
+            let code = `<!-- Cresce Academy 강사진 섹션 -->
+<section class="section" id="instructors">
+    <div class="container">
+        <div class="section-header">
+            <h2>예술과 스포츠 전문 강사진</h2>
+            <p>각 분야의 전문가들이 여러분의 성공적인 성장을 위해 최선을 다해 지도합니다</p>
+        </div>
+        <div class="grid">`;
+        
+            instructors.forEach(instructor => {
+                code += `
+            <div class="card">
+                <h3 style="color: #FF6B35; margin-bottom: 15px;">${instructor.name}</h3>
+                <p style="font-weight: 600; color: #6A4C93;">${instructor.school}</p>
+                <p style="color: #666;">${instructor.major}</p>
+                <div style="background: rgba(255, 107, 53, 0.1); color: #FF6B35; padding: 8px 16px; border-radius: 20px; display: inline-block;">${instructor.experience} 경력</div>
+            </div>`;
+            });
+            
+            code += `
+        </div>
+    </div>
+</section>`;
+            showCodeModal('👨‍🏫 Cresce Academy 강사진 코드', code);
+        }
 
-⚠️ 주의: 전체 코드가 너무 길어서 여기서는 구조만 보여드립니다.
-실제로는 배너, 강사진, 프로그램 각각의 코드를 개별적으로 
-메인 웹사이트의 해당 섹션에 교체해서 사용하세요.
-
-=== 현재 설정된 데이터 ===
-📢 배너: ${banners.length}개
-👨‍🏫 강사진: ${instructors.length}명  
-📚 프로그램: ${programs.length}개
-📞 연락처: ${settings.phone || '02-1234-5678'}
-📧 이메일: ${settings.email || 'info@moyestudio.com'}
-`;
-
-            showCodeModal('🚀 전체 웹사이트 코드', fullCode);
+        function exportProgramCode() {
+            let code = `<!-- Cresce Academy 프로그램 섹션 -->
+<section class="section" id="programs">
+    <div class="container">
+        <div class="section-header">
+            <h2>다양한 예술·스포츠 프로그램</h2>
+            <p>개인의 목표와 일정에 맞는 다양한 교육 프로그램을 선택하실 수 있습니다</p>
+        </div>
+        <div class="grid">`;
+        
+            programs.forEach(program => {
+                code += `
+            <div class="card">
+                <h3>${program.icon} ${program.title}</h3>
+                <div class="duration">${program.duration}</div>
+                <p>${program.description}</p>
+                <ul>`;
+                program.features.forEach(feature => {
+                    code += `
+                    <li>${feature}</li>`;
+                });
+                code += `
+                </ul>
+            </div>`;
+            });
+            
+            code += `
+        </div>
+    </div>
+</section>`;
+            showCodeModal('📚 Cresce Academy 프로그램 코드', code);
         }
 
         function showCodeModal(title, code) {
-            // 기존 모달 제거
             const existingModal = document.querySelector('.code-modal');
             if (existingModal) {
                 existingModal.remove();
@@ -1248,8 +1651,8 @@
                 if (!devtools.open) {
                     devtools.open = true;
                     console.clear();
-                    console.log("%c🔐 MoYe Studio 관리자 시스템", "color: #ff6b6b; font-size: 20px; font-weight: bold;");
-                    console.log("%c⚠️ 무단 접근이 감지되었습니다.", "color: #ff6b6b; font-size: 14px;");
+                    console.log("%c🌱 Cresce Academy 관리자 시스템", "color: #FF6B35; font-size: 20px; font-weight: bold;");
+                    console.log("%c⚠️ 무단 접근이 감지되었습니다.", "color: #FF6B35; font-size: 14px;");
                 }
             } else {
                 devtools.open = false;
