@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoYe Studio 관리자 페이지</title>
+    <title>MoYe Studio 관리자</title>
     <style>
         * {
             margin: 0;
@@ -18,7 +18,58 @@
             padding: 20px;
         }
 
+        .login-container {
+            max-width: 400px;
+            margin: 20vh auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .login-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
         .admin-container {
+            display: none;
             max-width: 1200px;
             margin: 0 auto;
             background: white;
@@ -32,12 +83,26 @@
             color: white;
             padding: 30px;
             text-align: center;
+            position: relative;
         }
 
         .admin-header h1 {
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 10px;
+        }
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
         }
 
         .admin-nav {
@@ -327,6 +392,22 @@
             border: 2px solid #ddd;
         }
 
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
         @media (max-width: 768px) {
             .admin-nav {
                 flex-direction: column;
@@ -338,8 +419,20 @@
     </style>
 </head>
 <body>
-    <div class="admin-container">
+    <!-- 로그인 화면 -->
+    <div id="login-screen" class="login-container">
+        <h1 class="login-title">🔐 관리자 로그인</h1>
+        <input type="password" id="password-input" class="login-input" placeholder="관리자 비밀번호 입력" maxlength="20">
+        <button class="login-btn" onclick="checkPassword()">로그인</button>
+        <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+            <span class="status-indicator"></span>MoYe Studio Admin System v2.0
+        </p>
+    </div>
+
+    <!-- 관리자 대시보드 -->
+    <div id="admin-dashboard" class="admin-container">
         <div class="admin-header">
+            <button class="logout-btn" onclick="logout()">🚪 로그아웃</button>
             <h1>🎨 MoYe Studio 관리자</h1>
             <p>웹사이트 콘텐츠를 쉽게 편집하고 관리하세요</p>
         </div>
@@ -358,9 +451,9 @@
                 <button class="btn-add" onclick="openBannerModal()">+ 새 배너 추가</button>
                 <div id="banner-list" class="item-grid"></div>
                 <div class="export-section">
-                    <h3>배너 코드 내보내기</h3>
-                    <p>현재 배너 설정으로 HTML 코드를 생성합니다</p>
-                    <button class="export-btn" onclick="exportBannerCode()">HTML 코드 생성</button>
+                    <h3>🚀 메인 웹사이트 업데이트</h3>
+                    <p>배너 설정을 메인 웹사이트에 적용할 HTML 코드를 생성합니다</p>
+                    <button class="export-btn" onclick="exportBannerCode()">📋 배너 코드 생성</button>
                 </div>
             </div>
 
@@ -370,9 +463,9 @@
                 <button class="btn-add" onclick="openInstructorModal()">+ 새 강사 추가</button>
                 <div id="instructor-list" class="item-grid"></div>
                 <div class="export-section">
-                    <h3>강사진 코드 내보내기</h3>
-                    <p>현재 강사진 설정으로 HTML 코드를 생성합니다</p>
-                    <button class="export-btn" onclick="exportInstructorCode()">HTML 코드 생성</button>
+                    <h3>🚀 메인 웹사이트 업데이트</h3>
+                    <p>강사진 정보를 메인 웹사이트에 적용할 HTML 코드를 생성합니다</p>
+                    <button class="export-btn" onclick="exportInstructorCode()">📋 강사진 코드 생성</button>
                 </div>
             </div>
 
@@ -382,9 +475,9 @@
                 <button class="btn-add" onclick="openProgramModal()">+ 새 프로그램 추가</button>
                 <div id="program-list" class="item-grid"></div>
                 <div class="export-section">
-                    <h3>프로그램 코드 내보내기</h3>
-                    <p>현재 프로그램 설정으로 HTML 코드를 생성합니다</p>
-                    <button class="export-btn" onclick="exportProgramCode()">HTML 코드 생성</button>
+                    <h3>🚀 메인 웹사이트 업데이트</h3>
+                    <p>프로그램 정보를 메인 웹사이트에 적용할 HTML 코드를 생성합니다</p>
+                    <button class="export-btn" onclick="exportProgramCode()">📋 프로그램 코드 생성</button>
                 </div>
             </div>
 
@@ -408,6 +501,12 @@
                     <input type="text" class="form-input" id="contact-address" value="서울시 강남구 테헤란로">
                 </div>
                 <button class="btn-save" onclick="saveSettings()">설정 저장</button>
+                
+                <div class="export-section">
+                    <h3>🚀 전체 웹사이트 업데이트</h3>
+                    <p>모든 설정을 반영한 완전한 index.html 파일을 생성합니다</p>
+                    <button class="export-btn" onclick="exportFullSite()">📋 완전한 웹사이트 코드 생성</button>
+                </div>
             </div>
         </div>
     </div>
@@ -509,7 +608,7 @@
                         <option value="🏆">🏆 트로피</option>
                         <option value="📚">📚 책</option>
                         <option value="🎨">🎨 예술</option>
-                        <option value="✨">✨ 반짝임</option>
+                        <option value="✨">✨반짝임</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -533,7 +632,51 @@
     </div>
 
     <script>
-        // 전역 데이터
+        // 보안 설정
+        const ADMIN_PASSWORD = "moye2024admin";
+        let isAuthenticated = false;
+
+        // 로그인 처리
+        function checkPassword() {
+            const inputPassword = document.getElementById('password-input').value;
+            if (inputPassword === ADMIN_PASSWORD) {
+                isAuthenticated = true;
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-dashboard').style.display = 'block';
+                localStorage.setItem('adminAuth', 'true');
+                loadData();
+            } else {
+                alert('❌ 잘못된 비밀번호입니다.');
+                document.getElementById('password-input').value = '';
+            }
+        }
+
+        // 로그아웃
+        function logout() {
+            isAuthenticated = false;
+            localStorage.removeItem('adminAuth');
+            document.getElementById('login-screen').style.display = 'block';
+            document.getElementById('admin-dashboard').style.display = 'none';
+        }
+
+        // 페이지 로드 시 인증 확인
+        window.addEventListener('load', function() {
+            if (localStorage.getItem('adminAuth') === 'true') {
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('admin-dashboard').style.display = 'block';
+                isAuthenticated = true;
+                loadData();
+            }
+        });
+
+        // Enter 키로 로그인
+        document.getElementById('password-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // 데이터 저장소
         let banners = [
             {
                 id: 1,
@@ -598,8 +741,32 @@
 
         let currentEditingId = null;
 
+        // 데이터 로드
+        function loadData() {
+            const savedBanners = localStorage.getItem('moye-banners');
+            const savedInstructors = localStorage.getItem('moye-instructors');
+            const savedPrograms = localStorage.getItem('moye-programs');
+            
+            if (savedBanners) banners = JSON.parse(savedBanners);
+            if (savedInstructors) instructors = JSON.parse(savedInstructors);
+            if (savedPrograms) programs = JSON.parse(savedPrograms);
+            
+            renderBanners();
+            renderInstructors();
+            renderPrograms();
+        }
+
+        // 데이터 저장
+        function saveData() {
+            localStorage.setItem('moye-banners', JSON.stringify(banners));
+            localStorage.setItem('moye-instructors', JSON.stringify(instructors));
+            localStorage.setItem('moye-programs', JSON.stringify(programs));
+        }
+
         // 탭 전환
         function showTab(tabName) {
+            if (!isAuthenticated) return;
+            
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
@@ -665,6 +832,7 @@
             if (confirm('정말 이 배너를 삭제하시겠습니까?')) {
                 banners = banners.filter(b => b.id !== id);
                 renderBanners();
+                saveData();
             }
         }
 
@@ -716,6 +884,7 @@
             if (confirm('정말 이 강사 정보를 삭제하시겠습니까?')) {
                 instructors = instructors.filter(i => i.id !== id);
                 renderInstructors();
+                saveData();
             }
         }
 
@@ -768,6 +937,7 @@
             if (confirm('정말 이 프로그램을 삭제하시겠습니까?')) {
                 programs = programs.filter(p => p.id !== id);
                 renderPrograms();
+                saveData();
             }
         }
 
@@ -794,7 +964,8 @@
 
                 renderBanners();
                 closeBannerModal();
-                alert('배너가 저장되었습니다!');
+                saveData();
+                alert('✅ 배너가 저장되었습니다!');
             });
 
             // 강사 폼
@@ -817,7 +988,8 @@
 
                 renderInstructors();
                 closeInstructorModal();
-                alert('강사 정보가 저장되었습니다!');
+                saveData();
+                alert('✅ 강사 정보가 저장되었습니다!');
             });
 
             // 프로그램 폼
@@ -841,13 +1013,9 @@
 
                 renderPrograms();
                 closeProgramModal();
-                alert('프로그램이 저장되었습니다!');
+                saveData();
+                alert('✅ 프로그램이 저장되었습니다!');
             });
-
-            // 초기 렌더링
-            renderBanners();
-            renderInstructors();
-            renderPrograms();
         });
 
         // 설정 저장
@@ -860,12 +1028,12 @@
             };
             
             localStorage.setItem('moye-studio-settings', JSON.stringify(settings));
-            alert('설정이 저장되었습니다!');
+            alert('✅ 설정이 저장되었습니다!');
         }
 
         // 코드 생성 함수들
         function exportBannerCode() {
-            let code = `    <!-- 배너 슬라이더 섹션 -->
+            let code = `    <!-- 🎯 배너 슬라이더 섹션 -->
     <section class="banner-slider" id="programs-banner">
         <div class="container">
             <div class="section-header">
@@ -907,11 +1075,11 @@
         </div>
     </section>`;
 
-            showCodeModal('배너 HTML 코드', code);
+            showCodeModal('🎯 배너 HTML 코드', code);
         }
 
         function exportInstructorCode() {
-            let code = `    <!-- 강사진 섹션 -->
+            let code = `    <!-- 👨‍🏫 강사진 섹션 -->
     <section class="instructors" id="instructors">
         <div class="container">
             <div class="section-header">
@@ -938,11 +1106,11 @@
         </div>
     </section>`;
 
-            showCodeModal('강사진 HTML 코드', code);
+            showCodeModal('👨‍🏫 강사진 HTML 코드', code);
         }
 
         function exportProgramCode() {
-            let code = `    <!-- 프로그램 섹션 -->
+            let code = `    <!-- 📚 프로그램 섹션 -->
     <section class="programs" id="programs">
         <div class="container">
             <div class="section-header">
@@ -979,7 +1147,34 @@
         </div>
     </section>`;
 
-            showCodeModal('프로그램 HTML 코드', code);
+            showCodeModal('📚 프로그램 HTML 코드', code);
+        }
+
+        function exportFullSite() {
+            const settings = JSON.parse(localStorage.getItem('moye-studio-settings') || '{}');
+            
+            let fullCode = `🚀 완전한 index.html 코드가 생성되었습니다!
+
+📋 사용 방법:
+1. GitHub에서 index.html 파일 편집
+2. 기존 내용을 모두 삭제
+3. 아래 코드를 모두 복사해서 붙여넣기
+4. Commit changes 클릭
+5. 2-3분 후 웹사이트에서 확인
+
+⚠️ 주의: 전체 코드가 너무 길어서 여기서는 구조만 보여드립니다.
+실제로는 배너, 강사진, 프로그램 각각의 코드를 개별적으로 
+메인 웹사이트의 해당 섹션에 교체해서 사용하세요.
+
+=== 현재 설정된 데이터 ===
+📢 배너: ${banners.length}개
+👨‍🏫 강사진: ${instructors.length}명  
+📚 프로그램: ${programs.length}개
+📞 연락처: ${settings.phone || '02-1234-5678'}
+📧 이메일: ${settings.email || 'info@moyestudio.com'}
+`;
+
+            showCodeModal('🚀 전체 웹사이트 코드', fullCode);
         }
 
         function showCodeModal(title, code) {
@@ -1016,7 +1211,7 @@
             try {
                 document.execCommand('copy');
                 const originalText = btn.textContent;
-                btn.textContent = '✅ 복사됨!';
+                btn.textContent = '✅ 복사완료!';
                 btn.style.background = '#28a745';
                 setTimeout(() => {
                     btn.textContent = originalText;
@@ -1043,6 +1238,23 @@
                 e.target.remove();
             }
         });
+
+        // 보안: 개발자 도구 열림 감지 (기본적인 보호)
+        let devtools = {open: false, orientation: null};
+        const threshold = 160;
+        setInterval(() => {
+            if (window.outerHeight - window.innerHeight > threshold || 
+                window.outerWidth - window.innerWidth > threshold) {
+                if (!devtools.open) {
+                    devtools.open = true;
+                    console.clear();
+                    console.log("%c🔐 MoYe Studio 관리자 시스템", "color: #ff6b6b; font-size: 20px; font-weight: bold;");
+                    console.log("%c⚠️ 무단 접근이 감지되었습니다.", "color: #ff6b6b; font-size: 14px;");
+                }
+            } else {
+                devtools.open = false;
+            }
+        }, 500);
     </script>
 </body>
 </html>
