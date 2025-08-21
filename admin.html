@@ -40,11 +40,6 @@
             margin-bottom: 10px;
         }
 
-        .admin-header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
         .admin-nav {
             display: flex;
             background: #f8f9ff;
@@ -67,10 +62,6 @@
             background: white;
             color: #667eea;
             border-bottom: 3px solid #667eea;
-        }
-
-        .nav-tab:hover {
-            background: rgba(102, 126, 234, 0.1);
         }
 
         .admin-content {
@@ -149,19 +140,9 @@
             color: white;
         }
 
-        .btn-edit:hover {
-            background: #45a049;
-            transform: translateY(-2px);
-        }
-
         .btn-delete {
             background: #f44336;
             color: white;
-        }
-
-        .btn-delete:hover {
-            background: #da190b;
-            transform: translateY(-2px);
         }
 
         .btn-add {
@@ -177,11 +158,6 @@
             margin-bottom: 30px;
         }
 
-        .btn-add:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-
         .modal {
             display: none;
             position: fixed;
@@ -191,7 +167,6 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
             z-index: 1000;
-            backdrop-filter: blur(5px);
         }
 
         .modal-content {
@@ -227,11 +202,6 @@
             font-size: 2rem;
             cursor: pointer;
             color: #999;
-            transition: color 0.3s ease;
-        }
-
-        .close-btn:hover {
-            color: #333;
         }
 
         .form-group {
@@ -245,7 +215,7 @@
             margin-bottom: 8px;
         }
 
-        .form-input {
+        .form-input, .form-textarea, .form-select {
             width: 100%;
             padding: 12px 15px;
             border: 2px solid #e9ecef;
@@ -254,40 +224,14 @@
             transition: border-color 0.3s ease;
         }
 
-        .form-input:focus {
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
             outline: none;
             border-color: #667eea;
         }
 
         .form-textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
             min-height: 100px;
             resize: vertical;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
-            background: white;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-select:focus {
-            outline: none;
-            border-color: #667eea;
         }
 
         .form-actions {
@@ -297,9 +241,7 @@
             margin-top: 30px;
         }
 
-        .btn-save {
-            background: #4CAF50;
-            color: white;
+        .btn-save, .btn-cancel {
             padding: 12px 25px;
             border: none;
             border-radius: 10px;
@@ -308,34 +250,14 @@
             transition: all 0.3s ease;
         }
 
-        .btn-save:hover {
-            background: #45a049;
-            transform: translateY(-2px);
+        .btn-save {
+            background: #4CAF50;
+            color: white;
         }
 
         .btn-cancel {
             background: #6c757d;
             color: white;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-cancel:hover {
-            background: #5a6268;
-            transform: translateY(-2px);
-        }
-
-        .color-preview {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            margin-left: 10px;
-            border: 2px solid #ddd;
         }
 
         .export-section {
@@ -359,12 +281,8 @@
             margin: 0 10px;
         }
 
-        .export-btn:hover {
-            background: #1e7e34;
-            transform: translateY(-2px);
-        }
-
         .code-modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -372,7 +290,6 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.7);
             z-index: 2000;
-            display: none;
         }
 
         .code-modal-content {
@@ -401,23 +318,21 @@
             resize: vertical;
         }
 
+        .color-preview {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+            border: 2px solid #ddd;
+        }
+
         @media (max-width: 768px) {
             .admin-nav {
                 flex-direction: column;
             }
-
             .item-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .modal-content {
-                padding: 20px;
-                margin: 20px;
-                width: calc(100% - 40px);
-            }
-
-            .form-actions {
-                flex-direction: column;
             }
         }
     </style>
@@ -441,12 +356,10 @@
             <div id="banners" class="tab-content active">
                 <h2 class="section-title">배너 관리</h2>
                 <button class="btn-add" onclick="openBannerModal()">+ 새 배너 추가</button>
-                <div id="banner-list" class="item-grid">
-                    <!-- 배너 항목들이 여기에 동적으로 추가됩니다 -->
-                </div>
+                <div id="banner-list" class="item-grid"></div>
                 <div class="export-section">
                     <h3>배너 코드 내보내기</h3>
-                    <p>아래 버튼을 클릭하면 현재 배너 설정으로 HTML 코드가 생성됩니다</p>
+                    <p>현재 배너 설정으로 HTML 코드를 생성합니다</p>
                     <button class="export-btn" onclick="exportBannerCode()">HTML 코드 생성</button>
                 </div>
             </div>
@@ -455,12 +368,10 @@
             <div id="instructors" class="tab-content">
                 <h2 class="section-title">강사진 관리</h2>
                 <button class="btn-add" onclick="openInstructorModal()">+ 새 강사 추가</button>
-                <div id="instructor-list" class="item-grid">
-                    <!-- 강사 항목들이 여기에 동적으로 추가됩니다 -->
-                </div>
+                <div id="instructor-list" class="item-grid"></div>
                 <div class="export-section">
                     <h3>강사진 코드 내보내기</h3>
-                    <p>아래 버튼을 클릭하면 현재 강사진 설정으로 HTML 코드가 생성됩니다</p>
+                    <p>현재 강사진 설정으로 HTML 코드를 생성합니다</p>
                     <button class="export-btn" onclick="exportInstructorCode()">HTML 코드 생성</button>
                 </div>
             </div>
@@ -469,12 +380,10 @@
             <div id="programs" class="tab-content">
                 <h2 class="section-title">프로그램 관리</h2>
                 <button class="btn-add" onclick="openProgramModal()">+ 새 프로그램 추가</button>
-                <div id="program-list" class="item-grid">
-                    <!-- 프로그램 항목들이 여기에 동적으로 추가됩니다 -->
-                </div>
+                <div id="program-list" class="item-grid"></div>
                 <div class="export-section">
                     <h3>프로그램 코드 내보내기</h3>
-                    <p>아래 버튼을 클릭하면 현재 프로그램 설정으로 HTML 코드가 생성됩니다</p>
+                    <p>현재 프로그램 설정으로 HTML 코드를 생성합니다</p>
                     <button class="export-btn" onclick="exportProgramCode()">HTML 코드 생성</button>
                 </div>
             </div>
@@ -485,10 +394,6 @@
                 <div class="form-group">
                     <label class="form-label">사이트 제목</label>
                     <input type="text" class="form-input" id="site-title" value="MoYe Studio - 모두의예체능">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">사이트 설명</label>
-                    <textarea class="form-textarea" id="site-description">예체능 유학 전문 교육 기관</textarea>
                 </div>
                 <div class="form-group">
                     <label class="form-label">연락처 전화번호</label>
@@ -503,12 +408,6 @@
                     <input type="text" class="form-input" id="contact-address" value="서울시 강남구 테헤란로">
                 </div>
                 <button class="btn-save" onclick="saveSettings()">설정 저장</button>
-                
-                <div class="export-section">
-                    <h3>전체 사이트 코드 내보내기</h3>
-                    <p>모든 설정을 반영한 완전한 웹사이트 코드를 생성합니다</p>
-                    <button class="export-btn" onclick="exportFullSite()">완전한 HTML 코드 생성</button>
-                </div>
             </div>
         </div>
     </div>
@@ -545,10 +444,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">링크 URL (선택사항)</label>
-                    <input type="url" class="form-input" id="banner-link">
-                </div>
-                <div class="form-group">
                     <label class="form-label">날짜/기간</label>
                     <input type="text" class="form-input" id="banner-date" placeholder="예: 30 AUG, 2025.08~">
                 </div>
@@ -583,10 +478,6 @@
                 <div class="form-group">
                     <label class="form-label">경력</label>
                     <input type="text" class="form-input" id="instructor-experience" placeholder="예: 8년">
-                </div>
-                <div class="form-group">
-                    <label class="form-label">전문 분야 (선택사항)</label>
-                    <textarea class="form-textarea" id="instructor-specialty" placeholder="예: 포트폴리오 제작, 입시 전략 등"></textarea>
                 </div>
                 <div class="form-actions">
                     <button type="button" class="btn-cancel" onclick="closeInstructorModal()">취소</button>
@@ -642,7 +533,7 @@
     </div>
 
     <script>
-        // 데이터 저장소
+        // 전역 데이터
         let banners = [
             {
                 id: 1,
@@ -650,8 +541,7 @@
                 subtitle: "2025 세무사 5년차수험",
                 description: "국제학교 교과 과정에 최적화된 학습 프로그램",
                 color: "yellow",
-                date: "30 AUG",
-                link: ""
+                date: "30 AUG"
             },
             {
                 id: 2,
@@ -659,8 +549,7 @@
                 subtitle: "에이프렙과 2025 가을학기",
                 description: "History 수업 전문 과정",
                 color: "green",
-                date: "3월(토) ~ 8월(토)",
-                link: ""
+                date: "3월(토) ~ 8월(토)"
             }
         ];
 
@@ -670,24 +559,21 @@
                 name: "김민지",
                 school: "Harvard University",
                 major: "Fine Arts",
-                experience: "8년",
-                specialty: "포트폴리오 제작, 미술 입시 전략"
+                experience: "8년"
             },
             {
                 id: 2,
                 name: "Sarah Johnson",
                 school: "Parsons School of Design",
                 major: "Fashion Design",
-                experience: "6년",
-                specialty: "패션 디자인, 브랜딩 전략"
+                experience: "6년"
             },
             {
                 id: 3,
                 name: "박준호",
                 school: "MIT",
                 major: "Architecture",
-                experience: "10년",
-                specialty: "건축 설계, 공간 디자인"
+                experience: "10년"
             }
         ];
 
@@ -712,17 +598,14 @@
 
         let currentEditingId = null;
 
-        // 탭 전환 함수
+        // 탭 전환
         function showTab(tabName) {
-            // 모든 탭 비활성화
             document.querySelectorAll('.tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
             document.querySelectorAll('.nav-tab').forEach(tab => {
                 tab.classList.remove('active');
             });
-
-            // 선택된 탭 활성화
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
         }
@@ -730,41 +613,31 @@
         // 배너 관련 함수들
         function renderBanners() {
             const bannerList = document.getElementById('banner-list');
-            bannerList.innerHTML = '';
+            const colorMap = {
+                yellow: '#FFE082', green: '#A5D6A7', mint: '#80CBC4',
+                blue: '#81D4FA', purple: '#CE93D8', red: '#FFAB91'
+            };
 
-            banners.forEach(banner => {
-                const colorMap = {
-                    yellow: '#FFE082',
-                    green: '#A5D6A7',
-                    mint: '#80CBC4',
-                    blue: '#81D4FA',
-                    purple: '#CE93D8',
-                    red: '#FFAB91'
-                };
-
-                bannerList.innerHTML += `
-                    <div class="item-card">
-                        <div class="item-header">
-                            <div class="item-title">${banner.title}</div>
-                            <div class="item-actions">
-                                <button class="btn btn-edit" onclick="editBanner(${banner.id})">편집</button>
-                                <button class="btn btn-delete" onclick="deleteBanner(${banner.id})">삭제</button>
-                            </div>
+            bannerList.innerHTML = banners.map(banner => `
+                <div class="item-card">
+                    <div class="item-header">
+                        <div class="item-title">${banner.title}</div>
+                        <div class="item-actions">
+                            <button class="btn btn-edit" onclick="editBanner(${banner.id})">편집</button>
+                            <button class="btn btn-delete" onclick="deleteBanner(${banner.id})">삭제</button>
                         </div>
-                        <p><strong>부제목:</strong> ${banner.subtitle}</p>
-                        <p><strong>설명:</strong> ${banner.description}</p>
-                        <p><strong>색상:</strong> ${banner.color} <span class="color-preview" style="background: ${colorMap[banner.color]}"></span></p>
-                        <p><strong>날짜:</strong> ${banner.date}</p>
-                        ${banner.link ? `<p><strong>링크:</strong> <a href="${banner.link}" target="_blank">${banner.link}</a></p>` : ''}
                     </div>
-                `;
-            });
+                    <p><strong>부제목:</strong> ${banner.subtitle}</p>
+                    <p><strong>설명:</strong> ${banner.description}</p>
+                    <p><strong>색상:</strong> ${banner.color} <span class="color-preview" style="background: ${colorMap[banner.color]}"></span></p>
+                    <p><strong>날짜:</strong> ${banner.date}</p>
+                </div>
+            `).join('');
         }
 
         function openBannerModal(id = null) {
             currentEditingId = id;
             const modal = document.getElementById('banner-modal');
-            const form = document.getElementById('banner-form');
             
             if (id) {
                 const banner = banners.find(b => b.id === id);
@@ -773,13 +646,9 @@
                 document.getElementById('banner-description').value = banner.description;
                 document.getElementById('banner-color').value = banner.color;
                 document.getElementById('banner-date').value = banner.date;
-                document.getElementById('banner-link').value = banner.link;
-                document.querySelector('.modal-title').textContent = '배너 편집';
             } else {
-                form.reset();
-                document.querySelector('.modal-title').textContent = '새 배너 추가';
+                document.getElementById('banner-form').reset();
             }
-            
             modal.style.display = 'block';
         }
 
@@ -802,31 +671,25 @@
         // 강사 관련 함수들
         function renderInstructors() {
             const instructorList = document.getElementById('instructor-list');
-            instructorList.innerHTML = '';
-
-            instructors.forEach(instructor => {
-                instructorList.innerHTML += `
-                    <div class="item-card">
-                        <div class="item-header">
-                            <div class="item-title">${instructor.name}</div>
-                            <div class="item-actions">
-                                <button class="btn btn-edit" onclick="editInstructor(${instructor.id})">편집</button>
-                                <button class="btn btn-delete" onclick="deleteInstructor(${instructor.id})">삭제</button>
-                            </div>
+            instructorList.innerHTML = instructors.map(instructor => `
+                <div class="item-card">
+                    <div class="item-header">
+                        <div class="item-title">${instructor.name}</div>
+                        <div class="item-actions">
+                            <button class="btn btn-edit" onclick="editInstructor(${instructor.id})">편집</button>
+                            <button class="btn btn-delete" onclick="deleteInstructor(${instructor.id})">삭제</button>
                         </div>
-                        <p><strong>출신 대학:</strong> ${instructor.school}</p>
-                        <p><strong>전공:</strong> ${instructor.major}</p>
-                        <p><strong>경력:</strong> ${instructor.experience}</p>
-                        <p><strong>전문 분야:</strong> ${instructor.specialty || '없음'}</p>
                     </div>
-                `;
-            });
+                    <p><strong>출신 대학:</strong> ${instructor.school}</p>
+                    <p><strong>전공:</strong> ${instructor.major}</p>
+                    <p><strong>경력:</strong> ${instructor.experience}</p>
+                </div>
+            `).join('');
         }
 
         function openInstructorModal(id = null) {
             currentEditingId = id;
             const modal = document.getElementById('instructor-modal');
-            const form = document.getElementById('instructor-form');
             
             if (id) {
                 const instructor = instructors.find(i => i.id === id);
@@ -834,13 +697,9 @@
                 document.getElementById('instructor-school').value = instructor.school;
                 document.getElementById('instructor-major').value = instructor.major;
                 document.getElementById('instructor-experience').value = instructor.experience;
-                document.getElementById('instructor-specialty').value = instructor.specialty || '';
-                document.querySelector('#instructor-modal .modal-title').textContent = '강사 정보 편집';
             } else {
-                form.reset();
-                document.querySelector('#instructor-modal .modal-title').textContent = '새 강사 추가';
+                document.getElementById('instructor-form').reset();
             }
-            
             modal.style.display = 'block';
         }
 
@@ -863,30 +722,25 @@
         // 프로그램 관련 함수들
         function renderPrograms() {
             const programList = document.getElementById('program-list');
-            programList.innerHTML = '';
-
-            programs.forEach(program => {
-                programList.innerHTML += `
-                    <div class="item-card">
-                        <div class="item-header">
-                            <div class="item-title">${program.icon} ${program.title}</div>
-                            <div class="item-actions">
-                                <button class="btn btn-edit" onclick="editProgram(${program.id})">편집</button>
-                                <button class="btn btn-delete" onclick="deleteProgram(${program.id})">삭제</button>
-                            </div>
+            programList.innerHTML = programs.map(program => `
+                <div class="item-card">
+                    <div class="item-header">
+                        <div class="item-title">${program.icon} ${program.title}</div>
+                        <div class="item-actions">
+                            <button class="btn btn-edit" onclick="editProgram(${program.id})">편집</button>
+                            <button class="btn btn-delete" onclick="deleteProgram(${program.id})">삭제</button>
                         </div>
-                        <p><strong>기간:</strong> ${program.duration}</p>
-                        <p><strong>설명:</strong> ${program.description}</p>
-                        <p><strong>특징:</strong> ${program.features.length}개 항목</p>
                     </div>
-                `;
-            });
+                    <p><strong>기간:</strong> ${program.duration}</p>
+                    <p><strong>설명:</strong> ${program.description}</p>
+                    <p><strong>특징:</strong> ${program.features.length}개 항목</p>
+                </div>
+            `).join('');
         }
 
         function openProgramModal(id = null) {
             currentEditingId = id;
             const modal = document.getElementById('program-modal');
-            const form = document.getElementById('program-form');
             
             if (id) {
                 const program = programs.find(p => p.id === id);
@@ -895,12 +749,9 @@
                 document.getElementById('program-duration').value = program.duration;
                 document.getElementById('program-description').value = program.description;
                 document.getElementById('program-features').value = program.features.join('\n');
-                document.querySelector('#program-modal .modal-title').textContent = '프로그램 편집';
             } else {
-                form.reset();
-                document.querySelector('#program-modal .modal-title').textContent = '새 프로그램 추가';
+                document.getElementById('program-form').reset();
             }
-            
             modal.style.display = 'block';
         }
 
@@ -920,18 +771,17 @@
             }
         }
 
-        // 폼 제출 이벤트 핸들러들
+        // 폼 제출 이벤트
         document.addEventListener('DOMContentLoaded', function() {
+            // 배너 폼
             document.getElementById('banner-form').addEventListener('submit', function(e) {
                 e.preventDefault();
-                
                 const bannerData = {
                     title: document.getElementById('banner-title').value,
                     subtitle: document.getElementById('banner-subtitle').value,
                     description: document.getElementById('banner-description').value,
                     color: document.getElementById('banner-color').value,
-                    date: document.getElementById('banner-date').value,
-                    link: document.getElementById('banner-link').value
+                    date: document.getElementById('banner-date').value
                 };
 
                 if (currentEditingId) {
@@ -947,15 +797,14 @@
                 alert('배너가 저장되었습니다!');
             });
 
+            // 강사 폼
             document.getElementById('instructor-form').addEventListener('submit', function(e) {
                 e.preventDefault();
-                
                 const instructorData = {
                     name: document.getElementById('instructor-name').value,
                     school: document.getElementById('instructor-school').value,
                     major: document.getElementById('instructor-major').value,
-                    experience: document.getElementById('instructor-experience').value,
-                    specialty: document.getElementById('instructor-specialty').value
+                    experience: document.getElementById('instructor-experience').value
                 };
 
                 if (currentEditingId) {
@@ -971,9 +820,9 @@
                 alert('강사 정보가 저장되었습니다!');
             });
 
+            // 프로그램 폼
             document.getElementById('program-form').addEventListener('submit', function(e) {
                 e.preventDefault();
-                
                 const programData = {
                     title: document.getElementById('program-title').value,
                     icon: document.getElementById('program-icon').value,
@@ -999,24 +848,12 @@
             renderBanners();
             renderInstructors();
             renderPrograms();
-            
-            // 저장된 설정 불러오기
-            const savedSettings = localStorage.getItem('moye-studio-settings');
-            if (savedSettings) {
-                const settings = JSON.parse(savedSettings);
-                document.getElementById('site-title').value = settings.title || 'MoYe Studio - 모두의예체능';
-                document.getElementById('site-description').value = settings.description || '예체능 유학 전문 교육 기관';
-                document.getElementById('contact-phone').value = settings.phone || '02-1234-5678';
-                document.getElementById('contact-email').value = settings.email || 'info@moyestudio.com';
-                document.getElementById('contact-address').value = settings.address || '서울시 강남구 테헤란로';
-            }
         });
 
-        // 설정 저장 함수
+        // 설정 저장
         function saveSettings() {
             const settings = {
                 title: document.getElementById('site-title').value,
-                description: document.getElementById('site-description').value,
                 phone: document.getElementById('contact-phone').value,
                 email: document.getElementById('contact-email').value,
                 address: document.getElementById('contact-address').value
@@ -1028,280 +865,121 @@
 
         // 코드 생성 함수들
         function exportBannerCode() {
-            let bannerHTML = '<!-- 배너 슬라이더 섹션 -->\n';
-            bannerHTML += '<section class="banner-slider" id="programs-banner">\n';
-            bannerHTML += '    <div class="container">\n';
-            bannerHTML += '        <div class="section-header">\n';
-            bannerHTML += '            <h2>학원소식</h2>\n';
-            bannerHTML += '            <div class="slider-controls">\n';
-            bannerHTML += '                <button class="slider-btn prev-btn" id="prevBtn">‹</button>\n';
-            bannerHTML += '                <div class="slider-dots">\n';
+            let code = `    <!-- 배너 슬라이더 섹션 -->
+    <section class="banner-slider" id="programs-banner">
+        <div class="container">
+            <div class="section-header">
+                <h2>학원소식</h2>
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" id="prevBtn">‹</button>
+                    <div class="slider-dots">`;
 
             banners.forEach((banner, index) => {
-                bannerHTML += `                    <span class="dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>\n`;
+                code += `
+                        <span class="dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></span>`;
             });
 
-            bannerHTML += '                </div>\n';
-            bannerHTML += '                <button class="slider-btn next-btn" id="nextBtn">›</button>\n';
-            bannerHTML += '                <button class="view-more-btn">더보기</button>\n';
-            bannerHTML += '            </div>\n';
-            bannerHTML += '        </div>\n';
-            bannerHTML += '        \n';
-            bannerHTML += '        <div class="banner-container">\n';
-            bannerHTML += '            <div class="banner-slides" id="bannerSlides">\n';
+            code += `
+                    </div>
+                    <button class="slider-btn next-btn" id="nextBtn">›</button>
+                    <button class="view-more-btn">더보기</button>
+                </div>
+            </div>
+            
+            <div class="banner-container">
+                <div class="banner-slides" id="bannerSlides">`;
 
             banners.forEach((banner, index) => {
-                bannerHTML += `                <div class="banner-slide ${index === 0 ? 'active' : ''}">\n`;
-                bannerHTML += `                    <div class="banner-card ${banner.color}">\n`;
-                bannerHTML += `                        <div class="banner-date">${banner.subtitle}</div>\n`;
-                bannerHTML += `                        <div class="banner-title">${banner.title}</div>\n`;
-                if (banner.date) {
-                    bannerHTML += `                        <div class="banner-number">${banner.date}</div>\n`;
-                }
-                bannerHTML += `                        <div class="banner-subtitle">${banner.description}</div>\n`;
-                bannerHTML += '                    </div>\n';
-                bannerHTML += '                </div>\n';
+                code += `
+                    <div class="banner-slide ${index === 0 ? 'active' : ''}">
+                        <div class="banner-card ${banner.color}">
+                            <div class="banner-date">${banner.subtitle}</div>
+                            <div class="banner-title">${banner.title}</div>
+                            ${banner.date ? `<div class="banner-number">${banner.date}</div>` : ''}
+                            <div class="banner-subtitle">${banner.description}</div>
+                        </div>
+                    </div>`;
             });
 
-            bannerHTML += '            </div>\n';
-            bannerHTML += '        </div>\n';
-            bannerHTML += '    </div>\n';
-            bannerHTML += '</section>';
+            code += `
+                </div>
+            </div>
+        </div>
+    </section>`;
 
-            showCodeModal('배너 HTML 코드', bannerHTML);
+            showCodeModal('배너 HTML 코드', code);
         }
 
         function exportInstructorCode() {
-            let instructorHTML = '<!-- 강사진 섹션 -->\n';
-            instructorHTML += '<section class="instructors" id="instructors">\n';
-            instructorHTML += '    <div class="container">\n';
-            instructorHTML += '        <div class="section-header">\n';
-            instructorHTML += '            <h2>세계 명문대 출신 강사진</h2>\n';
-            instructorHTML += '            <p>각 분야의 전문가들이 여러분의 성공적인 유학을 위해 최선을 다해 지도합니다.</p>\n';
-            instructorHTML += '        </div>\n';
-            instructorHTML += '        <div class="instructors-grid">\n';
-
-            instructors.forEach(instructor => {
-                instructorHTML += '            <div class="instructor-card">\n';
-                instructorHTML += '                <div class="instructor-image"></div>\n';
-                instructorHTML += '                <div class="instructor-info">\n';
-                instructorHTML += `                    <div class="instructor-name">${instructor.name}</div>\n`;
-                instructorHTML += `                    <div class="instructor-school">${instructor.school}</div>\n`;
-                instructorHTML += `                    <div class="instructor-major">${instructor.major} 전공</div>\n`;
-                instructorHTML += `                    <div class="instructor-experience">${instructor.experience} 경력</div>\n`;
-                instructorHTML += '                </div>\n';
-                instructorHTML += '            </div>\n';
-            });
-
-            instructorHTML += '        </div>\n';
-            instructorHTML += '    </div>\n';
-            instructorHTML += '</section>';
-
-            showCodeModal('강사진 HTML 코드', instructorHTML);
-        }
-
-        function exportProgramCode() {
-            let programHTML = '<!-- 프로그램 섹션 -->\n';
-            programHTML += '<section class="programs" id="programs">\n';
-            programHTML += '    <div class="container">\n';
-            programHTML += '        <div class="section-header">\n';
-            programHTML += '            <h2>맞춤형 교육 프로그램</h2>\n';
-            programHTML += '            <p>개인의 목표와 일정에 맞는 다양한 교육 프로그램을 선택하실 수 있습니다.</p>\n';
-            programHTML += '        </div>\n';
-            programHTML += '        <div class="programs-grid">\n';
-
-            programs.forEach(program => {
-                programHTML += '            <div class="program-card">\n';
-                programHTML += '                <div class="program-header">\n';
-                programHTML += `                    <div class="program-icon">${program.icon}</div>\n`;
-                programHTML += `                    <div class="program-title">${program.title}</div>\n`;
-                programHTML += '                </div>\n';
-                programHTML += `                <div class="program-duration">${program.duration}</div>\n`;
-                programHTML += '                <div class="program-description">\n';
-                programHTML += `                    ${program.description}\n`;
-                programHTML += '                </div>\n';
-                programHTML += '                <ul class="program-features">\n';
-
-                program.features.forEach(feature => {
-                    programHTML += `                    <li>${feature}</li>\n`;
-                });
-
-                programHTML += '                </ul>\n';
-                programHTML += '            </div>\n';
-            });
-
-            programHTML += '        </div>\n';
-            programHTML += '    </div>\n';
-            programHTML += '</section>';
-
-            showCodeModal('프로그램 HTML 코드', programHTML);
-        }
-
-        function exportFullSite() {
-            const settings = {
-                title: document.getElementById('site-title').value,
-                description: document.getElementById('site-description').value,
-                phone: document.getElementById('contact-phone').value,
-                email: document.getElementById('contact-email').value,
-                address: document.getElementById('contact-address').value
-            };
-
-            let fullHTML = `<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${settings.title}</title>
-    <!-- 여기에 완전한 CSS 스타일을 포함해야 합니다 -->
-</head>
-<body>
-    <!-- 네비게이션 -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">🎨 MoYe Studio</div>
-            <ul class="nav-menu">
-                <li><a href="#home">홈</a></li>
-                <li><a href="#features">특징</a></li>
-                <li><a href="#instructors">강사진</a></li>
-                <li><a href="#programs">프로그램</a></li>
-                <li><a href="#contact">문의</a></li>
-            </ul>
-            <a href="#contact" class="cta-button">무료 상담</a>
-        </div>
-    </nav>
-
-    <!-- 히어로 섹션 -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>예체능 유학의 꿈을<br>현실로 만들어보세요</h1>
-                <p>${settings.description}</p>
-                <div class="hero-buttons">
-                    <a href="#programs" class="btn-primary">프로그램 보기</a>
-                    <a href="#contact" class="btn-secondary">무료 상담 받기</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 배너 섹션 -->
-    ${generateBannerHTML()}
-
-    <!-- 강사진 섹션 -->
-    ${generateInstructorHTML()}
-
-    <!-- 프로그램 섹션 -->
-    ${generateProgramHTML()}
-
-    <!-- 푸터 -->
-    <footer class="footer">
+            let code = `    <!-- 강사진 섹션 -->
+    <section class="instructors" id="instructors">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">🎨 MoYe Studio</div>
-                    <p>${settings.description}</p>
-                </div>
-                <div class="footer-section">
-                    <h4>연락처</h4>
-                    <p>📞 ${settings.phone}<br>
-                    📧 ${settings.email}<br>
-                    📍 ${settings.address}</p>
-                </div>
+            <div class="section-header">
+                <h2>세계 명문대 출신 강사진</h2>
+                <p>각 분야의 전문가들이 여러분의 성공적인 유학을 위해 최선을 다해 지도합니다.</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 MoYe Studio. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript 기능들 -->
-    <script>
-        // 배너 슬라이더 및 기타 JavaScript 기능들
-    </script>
-</body>
-</html>`;
-
-            showCodeModal('완전한 웹사이트 HTML 코드', fullHTML);
-        }
-
-        // 헬퍼 함수들
-        function generateBannerHTML() {
-            let html = `
-    <section class="banner-slider">
-        <div class="container">
-            <h2>학원소식</h2>
-            <div class="banner-container">`;
-
-            banners.forEach((banner, index) => {
-                html += `
-                <div class="banner-card ${banner.color}">
-                    <div class="banner-title">${banner.title}</div>
-                    <div class="banner-subtitle">${banner.subtitle}</div>
-                    <div class="banner-description">${banner.description}</div>
-                    <div class="banner-date">${banner.date}</div>
-                </div>`;
-            });
-
-            html += `
-            </div>
-        </div>
-    </section>`;
-            return html;
-        }
-
-        function generateInstructorHTML() {
-            let html = `
-    <section class="instructors">
-        <div class="container">
-            <h2>강사진</h2>
             <div class="instructors-grid">`;
 
             instructors.forEach(instructor => {
-                html += `
+                code += `
                 <div class="instructor-card">
-                    <div class="instructor-name">${instructor.name}</div>
-                    <div class="instructor-school">${instructor.school}</div>
-                    <div class="instructor-major">${instructor.major}</div>
-                    <div class="instructor-experience">${instructor.experience}</div>
+                    <div class="instructor-image"></div>
+                    <div class="instructor-info">
+                        <div class="instructor-name">${instructor.name}</div>
+                        <div class="instructor-school">${instructor.school}</div>
+                        <div class="instructor-major">${instructor.major} 전공</div>
+                        <div class="instructor-experience">${instructor.experience} 경력</div>
+                    </div>
                 </div>`;
             });
 
-            html += `
+            code += `
             </div>
         </div>
     </section>`;
-            return html;
+
+            showCodeModal('강사진 HTML 코드', code);
         }
 
-        function generateProgramHTML() {
-            let html = `
-    <section class="programs">
+        function exportProgramCode() {
+            let code = `    <!-- 프로그램 섹션 -->
+    <section class="programs" id="programs">
         <div class="container">
-            <h2>프로그램</h2>
+            <div class="section-header">
+                <h2>맞춤형 교육 프로그램</h2>
+                <p>개인의 목표와 일정에 맞는 다양한 교육 프로그램을 선택하실 수 있습니다.</p>
+            </div>
             <div class="programs-grid">`;
 
             programs.forEach(program => {
-                html += `
+                code += `
                 <div class="program-card">
-                    <div class="program-icon">${program.icon}</div>
-                    <div class="program-title">${program.title}</div>
+                    <div class="program-header">
+                        <div class="program-icon">${program.icon}</div>
+                        <div class="program-title">${program.title}</div>
+                    </div>
                     <div class="program-duration">${program.duration}</div>
-                    <div class="program-description">${program.description}</div>
-                    <ul>`;
+                    <div class="program-description">
+                        ${program.description}
+                    </div>
+                    <ul class="program-features">`;
 
                 program.features.forEach(feature => {
-                    html += `<li>${feature}</li>`;
+                    code += `
+                        <li>${feature}</li>`;
                 });
 
-                html += `</ul>
+                code += `
+                    </ul>
                 </div>`;
             });
 
-            html += `
+            code += `
             </div>
         </div>
     </section>`;
-            return html;
+
+            showCodeModal('프로그램 HTML 코드', code);
         }
 
         function showCodeModal(title, code) {
@@ -1333,7 +1011,7 @@
         function copyToClipboard(btn) {
             const textarea = btn.parentElement.nextElementSibling;
             textarea.select();
-            textarea.setSelectionRange(0, 99999); // 모바일 지원
+            textarea.setSelectionRange(0, 99999);
             
             try {
                 document.execCommand('copy');
@@ -1345,7 +1023,7 @@
                     btn.style.background = '#4CAF50';
                 }, 2000);
             } catch (err) {
-                alert('클립보드 복사에 실패했습니다. 텍스트를 수동으로 선택해서 복사해주세요.');
+                alert('클립보드 복사에 실패했습니다. 텍스트를 수동으로 복사해주세요.');
             }
         }
 
@@ -1362,7 +1040,7 @@
         // 모달 외부 클릭 시 닫기
         window.addEventListener('click', function(e) {
             if (e.target.classList.contains('modal') || e.target.classList.contains('code-modal')) {
-                e.target.style.display = 'none';
+                e.target.remove();
             }
         });
     </script>
